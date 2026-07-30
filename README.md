@@ -1,7 +1,7 @@
 # Zápočtový program: TETRIS
 ## Špecifikácia
 
-Hra tetris ako konzolová aplikácia, t.z. celá grafika je vykreslovaná pomocou znakov v konzoli.
+Hra tetris ako konzolová aplikácia bez použitia knižníc na vykresľovanie do konzoly.
 
 ## Inštalácia a spustenie
 
