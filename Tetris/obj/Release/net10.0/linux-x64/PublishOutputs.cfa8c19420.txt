@@ -1,0 +1,2 @@
+C:\Users\macop\Documents\Skola\1_rocnik\Leto\Programovani\student-puckom\Tetris\bin\Release\net10.0\linux-x64\publish\Tetris.pdb
+C:\Users\macop\Documents\Skola\1_rocnik\Leto\Programovani\student-puckom\Tetris\bin\Release\net10.0\linux-x64\publish\Tetris
