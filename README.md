@@ -1,4 +1,5 @@
 # TETRIS as an console app
+[🇸🇰 Slovensky](README.sk.md)
 ## Specification
 
 The game Tetris as an console app without using external libraries for writing in the console.

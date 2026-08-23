@@ -1,4 +1,5 @@
 # TETRIS ako aplikácia v konzoli
+[🇬🇧 English](README.md)
 ## Špecifikácia
 
 Hra tetris ako konzolová aplikácia bez použitia knižníc na vykresľovanie v konzole.
