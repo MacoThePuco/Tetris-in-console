@@ -1,5 +1,3 @@
-using Spectre.Console;
-
 namespace Tetris
 {
     public static class Constants
