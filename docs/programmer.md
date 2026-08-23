@@ -119,9 +119,9 @@ Pre daný blok, rotáciu a pozíciu zistí pozície častí bloku tak, že prejd
 ### MoveSideways()
 Funkcia volaná z hlavného game-loopu.
 
-Najprv zistíme do ktorej strany sa chceme pohnúť pomocou funkcie GetSidewaysMovement a potom ak týmto pohybom nedostaneme žiadnu časť bloku von z plochy alebo do iného už položeného bloku, tak ho pohneme do tejto strany.
+Najprv zistíme, do ktorej strany sa chceme pohnúť pomocou funkcie GetSidewaysMovement a potom ak týmto pohybom nedostaneme žiadnu časť bloku von z plochy alebo do iného už položeného bloku, tak ho pohneme do tejto strany.
 
-Na toto využivame Board.BlockWillOverlap() a Position.IsOutOfBounds()
+Na toto využívame Board.BlockWillOverlap() a Position.IsOutOfBounds()
 
 ### GetSidewaysMovement()
 Skontroluje, ktorá šípka do strany bola stlačená a podľa toho vráti 1 ak pravá, -1 ak ľavá a 0 ak žiadna.
@@ -130,7 +130,7 @@ Skontroluje, ktorá šípka do strany bola stlačená a podľa toho vráti 1 ak 
 ### Rotate()
 Funkcia volaná z hlavného game-loopu.
 
-Znovu najprv zistíme do ktorej strany chceme rotovať a následne zistíme, či by po vykonaní rotácie žiadna časť bloku nevyskytla mimo obrazovky alebo v inom bloku, podovne ako pri MoveSideways().
+Znovu najprv zistíme do ktorej strany chceme rotovať a následne zistíme, či by sa po vykonaní rotácie niektorá časť bloku nevyskytla mimo hracej plochy alebo v inom bloku, podobne ako pri MoveSideways().
 
 Ak sa nám nič také nestalo, otočíme blok
 
@@ -140,7 +140,7 @@ Vráti 1 ak je šípka hore stlačená a 0 ak nie.
 ### MoveDownwards()
 Funkcia volaná z hlavného game-loopu.
 
-Ako prvé zistí, či je stlačený medzerník, V takom prípade instante spadne padajúci blok najviack ako sa dá. To spraví tak, že ním posúva dolu až pokým môže. Taktiež sa za instantný pád pridajú body.
+Ako prvé zistí, či je stlačený medzerník, V takom prípade okamžite zníži padajúci blok najviac ako sa dá. To spraví tak, že ním posúva dolu až pokým môže. Taktiež sa za okamžitý pád pridajú body.
 
 Ak nebol medzerník stlačený, tak sa pozrie či má blok padať tento frame. To je vtedy ak časovač nameral od posledného spadnutia viac ako čas medzi spadnutiami daný v konštantách. Taktiež sa táto podmienka preskočí, ak sa drží šípka dolu.
 
@@ -151,22 +151,22 @@ Ak nemá stáť, posunie ho nižšie a ak sme nedržali šípku dolu, tak nastav
 Ak sme šípku dole držali, pripočítame za to skóre.
 
 ### GetGhostBlockPositions()
-Vráti všetky pozície častí ghostblocku. To je block, ktorý sa zobrazí na miesto, kam má práve blok spadnúť. To zistíme tak že skúšame časti posúvať dole až dovtedy, dokedy môžeme. Keď už nemôžeme, vrátime ich pozície.
+Vráti všetky pozície častí ghostblocku. To je blok, ktorý sa zobrazí na miesto, kam má práve blok spadnúť. To zistíme tak, že skúšame časti posúvať dole až dovtedy, kým môžeme. Keď už nemôžeme, vrátime ich pozície.
 
-# Blockdefinitions.cs
+# BlockDefinitions.cs
 V tomto súbore sú rozpísane rôzne typy blokov a ich možné rotácie relatívne ku stredovému bloku.
 
 Ten sme vybrali tak, aby sa nám celý blok dobre zobrazoval na ploche pre ďaľší blok.
 
-# LooseScreen.cs
+# LoseScreen.cs
 V tomto súbore je len classa LooseScreem ktorá je odvodená od MenuManager, len definuje nové texty a akcie. 
 
 # Tiskarna.cs
-Je súbor v ktorom je classa Tiskarna. Táto slúži na vypisovanie všetkých informácií o hre na obrazovku.
+Je súbor, v ktorom je classa Tiskarna. Táto slúži na vypisovanie všetkých informácií o hre na obrazovku.
 
-Pred Spustením vykresľovania sa spustí Setup(), ktorý vymaže obrazovku, zistí jej stred a schvoá kurzor
+Pred Spustením vykresľovania sa spustí Setup(), ktorý vymaže obrazovku, zistí jej stred a schová kurzor.
 
-Niektoré funkcie majú volitelný argunment scaleWithBlockSize, ktorý robí to, že objekty sa vykreslia toľkokráť širšie, ako je široký jeden blok.
+Niektoré funkcie majú voliteľný argunment scaleWithBlockSize, ktorý robí to, že objekty sa vykreslia toľkokrát širšie, ako je široký jeden blok.
 
 ### Clear()
 Vymaže obrazovku
@@ -175,46 +175,46 @@ Vymaže obrazovku
 Vymaže riadok obrazovky o danej šírke.
 
 ### SetRelativeCursorPosition()
-Nastaví kurzoru novú pozíciu relatívne ku nejakej začiatočnej pozícií
+Nastaví kurzor na novú pozíciu relatívne k nejakej začiatočnej pozícií
 
 ## Vykresľovanie Hry
 Začína sa spustením SetupGame() ktorý nastaví hodnoty začiatkov, kde na obrazovke začínajú rôzne elementy.
 
 ### Draw()
-Najprv vymaže dva riadky nad plochov (pretože tan sa spawnujú nové bloky) a potom najpr vykreslí všetky riadky plochý, potom padajúci blok a následne spod plochy.
+Najprv vymaže dva riadky nad plochou (pretože tan sa spawnujú nové bloky) a potom najprv vykreslí všetky riadky plochy, potom padajúci blok a následne spod plochy.
 
 ### DrawBlock()
 Najprv vykreslí jeho ghost block a potom prejde cez jeho pozície a vykreslí časti jeho blocku. Ghost block sa vykresľuje ako prvý preto, lebo časti reálneho bloku chceme mať vykreslené nad ghost blockom.
 
 ### DrawGhostBlock()
-Vykreslí pre všetky časti ghost blocku textúru zadefinovanú v konštantách. Textúra vyzerá akoby tam znak bol len napoli.
+Vykreslí pre všetky časti ghost blocku textúru zadefinovanú v konštantách. Textúra vyzerá, akoby tam znak bol len napoly.
 
 ### DrawGameRow()
-Vykreslí jeden riadok z plochy, teda najprv bočné mantinely a následne prázdne miesto ak na tej pozícii nič nie je a farbu bloku ak je na tej pozícii nejaký je.
+Vykreslí jeden riadok z plochy, teda najprv bočné okraje a následne na prisetor medzi okrajmi vykreslí prázdne miesto ak na tej pozícii nič nie je a farbu bloku ak je na tej pozícii nejaký blok je.
 
 ### DrawScore()
 Vykreslí obdĺžnik pre skóre a potom do stredu vpíše skóre vyplnené nulami vpredu.
 
 ### DrawNextBlockPanel
-Vykreslí obdĺžnik pre ďaľší blok a potom doneho vykreslí ďaľší blok.
+Vykreslí obdĺžnik pre ďalší blok a potom doneho vykreslí ďaľší blok.
 
 ### DrawRectangle
 Vykreslí obdĺžnik s požadovanými dimenziami
 
 ## Vykresľovanie Menu
 ### DrawMenu()
-Najprv zistí dĺžku najdlhšieho textu, aby potom vedel text správne centrovať na stred. Potom vykreslí ASCII nadplis a následne vykreslí riadky akcií. Ak je riadok vybratý, zafarbí ho farbou v určitých intervaloch. Tie kontroluje ale ten, čo funkciu volal, takže táto funkcia už len dostane hodnotu, či vybratý riadok má byť zafarbený alebo nie.
+Najprv zistí dĺžku najdlhšieho textu, aby potom vedel text správne centrovať na stred. Potom vykreslí ASCII nadpis a následne vykreslí riadky akcií. Ak je riadok vybratý, zafarbí ho farbou v určitých intervaloch. Tie kontroluje ale ten, čo funkciu volal, takže táto funkcia už len dostane hodnotu, či vybratý riadok má byť zafarbený alebo nie.
 
 ### DrawAsciiHeader()
-Vykreslí ascii nadplis na x-ový stred obrazovky s nejakým posunutím y. 
+Vykreslí ascii nadpis na x-ový stred obrazovky s nejakým posunutím y. 
 
 
 ## Vykresľovanie obrazovky prehry
 Funguje rovnako ako vykresľovanie menu, no predtým sa ešte zavolá funkcia SetupLoseScreen()
 
 ### SetupLoseScreen()
-Najprv vymaže obrazovku, a potom nastaví začiatky plochy a bočného panelu naľavo a napravo od stredu tak, aby sa medzi plochu a bočný panel zmestilo menu. Potom plochu a menu vykreslí a ďaľej sa už volá len funkcia ako pri menu.
+Najprv vymaže obrazovku, a potom nastaví začiatky plochy a bočného panelu naľavo a napravo od stredu tak, aby sa medzi plochu a bočný panel zmestilo menu. Potom plochu a menu vykreslí a ďalej sa už volá len funkcia ako pri menu.
 
 ## Vykresľovanie credits
 ### DrawCredits
-Vždy najprv vymaže obrazovku a potom napíše na stred všetky riadky creditov.
+Vždy najprv vymaže obrazovku a potom napíše na stred všetky riadky titulkov.
