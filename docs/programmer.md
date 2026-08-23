@@ -1,25 +1,25 @@
 # Programátorská dokumentace
 
-Beh programu beži na jednom z dvoch stavov: 
+Beh programu prebieha v jednom z dvoch stavov: 
 - Menu
 - Hra
 
-Vždy sa objekty odvolávajú na Tiskárnu, ktorá prepíše časť obrazovky
+Objekty sa pri vykresľovaní odvolávajú na triedu Tiskárna, ktorá ako jediná prepisuje obrazovku.
 
 # Program.cs
-Tu sa nachádza class Program, Utils a Position
+V tomto súbore sa nachádzajú triedy Program, Utils a Position
 ## Class Program
-Má v sebe funkciu Main(), kde sa začína program. V nej len nastavíme Tiskárnu a čo sa má stať v prípade, že uživateľ stlačí Ctrl-C. Následne nás dostane rovno do Hlavného menu.
+Má v sebe funkciu Main(), kde sa začína program. V nej len nastavíme Tiskárnu a čo sa má stať v prípade, že používateľ stlačí Ctrl-C. Následne program prejde do hlavného menu.
 
-Tatkiež má v sebe funkciu Exit(), ktorá vymaže hru a zmení anstavenia konzole na východzie.
+Tatkiež má v sebe funkciu Exit(), ktorá vymaže hru a zmení nastavenia konzole na východiskové.
 
 ## Class Utils
 Má v sebe random a stopwatch, ktoré sa využívaju naprieč celým programom
 
-## Class Positon
+## Class Position
 Pomáha s výpočtom pozícií naprieč programom. Má dva konštruktory, buď z inej už existujúcej pozície alebo z dvoch hodnôt
 
-Taktiež má funkciu AddPosition() ktorá vráti novú pozíciu. Táto funkcia buď beria ako argumenty inú pozíciu alebo dve hodnoty y a x.
+Taktiež má funkciu AddPosition(), ktorá vráti novú pozíciu. Táto funkcia buď berie ako argumenty inú pozíciu alebo dve hodnoty y a x.
 
 Ešte má funkciu IsOutOfBounds() ktorá vráti true alebo false podľa toho, či je mimo plochy.
 
@@ -27,14 +27,14 @@ Ešte má funkciu IsOutOfBounds() ktorá vráti true alebo false podľa toho, č
 Má v sebe len class Constants v ktorej sú zapísané konštanty používané v celom programe
 
 # Menu.cs
-Má v sebe len classu MenuManager. Tá sa stará o správne fungovanie menu.
+Obsahuje iba triedu MenuManager. Tá sa stará o správne fungovanie menu.
 
-Funkcia StartMenuFuncionality() Začne bežať hlavnú smyčky pre menu, kde číta stlačenia klávesov pre hýbanie kurzoru a vykonanie akcie.
+Funkcia StartMenuFuncionality() spustí hlavnú slučku pre menu, kde číta stlačenia klávesov pre hýbanie kurzoru a vykonanie akcie.
 
 Pri stlačení šípok spustí MovePointer() ktorá pohne kurzorom a pri stlačení Space/Enter vykoná akciu, na ktorú máme práve ukázanú.
 
 ## Credits()
-Vyíše credits zadedinované v konštantách, ktoré postupne posúva obrazovkou hore, a reaguje na stlačenie Space/Enter na preskočenie credits. Po prejdení alebo preskočení credits sa vráti naspäť na hlavné menu
+Vyíše titulky zadedinované v konštantách, ktoré postupne posúva smerom hore po obrazovke, a reaguje na stlačenie Space/Enter na preskočenie titulkov. Po prejdení alebo preskočení credits sa vráti späť na hlavné menu
 
 # Game.cs
 Tu sa nachádza celá herná logika hry.
@@ -42,41 +42,41 @@ Tu sa nachádza celá herná logika hry.
 ## Class Game
 Je statická class.
 
-Má v sebe funkciu StartGame() ktorá pripravý celú hru, taktiež ju vyresetuje ak hráme znova, a zapne ju. Na pripravenie používa rôzne funkcie Setup...() a ResetGameVariables(). Po pripravení zavolá funkciu Play().
+Má v sebe funkciu StartGame() ktorá pripraví celú hru, taktiež ju vyresetuje ak hráme znova, a spustí ju. Na pripravenie používa rôzne funkcie Setup...() a ResetGameVariables(). Po pripravení zavolá funkciu Play().
 
 ### Play()
-V tejto funkcii sa nachádza hlavný game-loop, ktorý sa skončí práve keď prehráme. V hlavnom loope len zistí, aká klávea je práve stlačená, skúsi pohnút s padajúcim blokom a následne počká, kým má vykonať ďaľší frame a potom to celé zopakuje. 
+V tejto funkcii sa nachádza hlavný game-loop, ktorý sa skončí práve keď prehráme. V hlavnom loope len zistí, aká klávesa je práve stlačená, skúsi pohnúť s padajúcim blokom a následne počká, kým má vykonať ďalší frame a potom to celé zopakuje. 
 
-Po prehratí zavolá funkciu Loose(), ktorá nás presunie do LooseScreenMenu.
+Po prehratí zavolá funkciu Lose(), ktorá nás presunie do LoseScreenMenu.
 
 ## Class Score
-Je statická classa, ktorá si ukladá skóre. Má funkcie AddPoints(), ak chceme pridať body priamo alebo LinesCleared(), kde nechávame výpočet bodov na classu podľa počtu vymazaných riadkov.
+Je statická trieda, ktorá si ukladá skóre. Má funkcie AddPoints(), ak chceme pridať body priamo alebo LinesCleared(), kde nechávame výpočet bodov na classu podľa počtu vymazaných riadkov.
 
 ## Class Board
-Je statická classa, ktorá sa stará o hernú plochu.
+Trieda Board sa stará o hernú plochu.
 
-V každom bode si pamätá padajúci blok a blok, ktorý najsleduje. Pri vytvorení vygeneruje tieto dva bloky pomocou BlockFactory.
+V každom bode si pamätá padajúci blok a blok, ktorý nasleduje. Pri vytvorení vygeneruje tieto dva bloky pomocou BlockFactory.
 
-Taktiež si pamätá ako vyzerá plocha dvojdimenzionálnym arrayom. Na mieste kde sa žiaden blok nenachádza je -1 a tam kde je je číslo jeho farby.
+Taktiež si pamätá ako vyzerá plocha dvojrozmerným poľom. Na mieste, kde sa žiaden blok nenachádza je -1 a tam kde je je číslo jeho farby.
 
 ### SpawnBlock()
-Nastaví padajúci blok na nasledujúci a vygeneruje nový nasledujúci. Taktiež zavolá Tiskárnu aby prekreslila panel s ďaľším blokom.
+Nastaví padajúci blok na nasledujúci a vygeneruje nový nasledujúci. Taktiež zavolá Tiskárnu, aby prekreslila panel s ďalším blokom.
 
 ### StopFallingBlock()
 Najprv skontroluje, či blok nepokladáme mimo plochy, a ak áno tak nastaví Game.lost na true, čím sa ukončí game-loop. Toto je jediné miesto kde sa môže ukončiť hra.
 
-Ak ho pokladáme na validné miesto, zavoláme SpawnBlock() a CheckAndDeleteRows() a povieme Tiskárne aby vykreslila plochu znova.
+Ak ho pokladáme na platné miesto, zavoláme SpawnBlock() a CheckAndDeleteRows() a povieme Tiskárne aby vykreslila plochu znova.
 
 ### CheckAndDeleteRows()
-Prejde cez všetky riadky a skontroluje, či sú plné. Ak áno, vymaže ich a na konci zavolá Score.LinesCleared. Tú volá aj v prípade, že sme nevymazali žiaden riadok, ale do nej pošle hodnotu 0, ktorá nepridá žiadne body do skóre.  
+Prejde cez všetky riadky a skontroluje, či sú plné. Ak áno, vymaže ich a na konci zavolá Score.LinesCleared. Tú volá aj v prípade, že sme nevymazali žiadny riadok, ale do nej pošle hodnotu 0, ktorá nepridá žiadne body do skóre.  
 
-To, či sú riadky plné kontrolujeme odvrchu plochy, aby sa nám nestalo, že posunieme o jedno dole plný riadok a potom ho už neskontrolujeme.
+To, či sú riadky plné kontrolujeme od vrchu plochy, aby sa nám nestalo, že posunieme o jedno dole plný riadok a potom ho už neskontrolujeme.
 
 ### RowFull()
-Skontroluje či je riadok na ploche plný, a podla toho vráti true alebo false.
+Skontroluje či je riadok na ploche plný, a podľa toho vráti true alebo false.
 
 ### DeleteRow()
-Vymaže riadok ktroý dostal v argumetoch a následne všetky riadky nad ním posunie o 1 dole a najvyšší nastaví na prázdny.
+Vymaže riadok ktorý dostal v argumentoch a následne všetky riadky nad ním posunie o 1 dole a najvyšší nastaví na prázdny.
 
 ### BlockWillOverlap
 Má dve možnosti pohybu:
@@ -86,19 +86,19 @@ Má dve možnosti pohybu:
 Do argumentu môžeme dať jeden z nich a funkcia zistí, či sa bude blok pretínať už s nejakými spadnutými blokmi, ak na ňom vykonáme tento pohyb.
 
 ### CheckOverlap
-Pre určitú pozíciu len zistí, či sa na nej nachádza plné alebo voľné políčko na ploche. Vráti true ak políčko je prázdne
+Pre určitú pozíciu len zistí, či sa na nej nachádza plné alebo voľné políčko na ploche. Vráti true ak je políčko obsadené.
 
 ## Class BlockFactory
 Je classa určená na generovanie nových blokov. 
 
-Na začiatku si vytvorí zoznam všetkých konštruktorov rôznych blokov, a následne z neho náhodne vyberá. Keď už použila všetky konštruktory, do zoznamu naspäť všetky vráti a potom vyberá znova.
+Na začiatku vytvorí zoznam všetkých konštruktorov rôznych blokov, a následne z neho náhodne vyberá. Keď už použila všetky konštruktory, do zoznamu naspäť všetky vráti a potom vyberá znova.
 
 ## Class Block
-Od tejto classy sú odvodené classy jednotlivých blokov
+Od tejto triedy sú odvodené triedy jednotlivých blokov
 
-Každý blok má svoje časti (4 kocky), pozíciu, rotáciu a farbu
+Každý blok má svoje časti (štyri kocky), pozíciu, rotáciu a farbu
 
-Blok má konštruktor ktorú používa plocha, a vtedy sa vyutvorí v strede nad plochou. Alebo má konštruktor z iného bloku kde len okopíruje jeho vlastnosti.
+Blok má konštruktor, ktorý používa plocha, a vtedy sa vytvorí v strede nad plochou. Alebo má konštruktor z iného bloku kde len okopíruje jeho vlastnosti.
 
 ### Fall() 
 Táto funkcia sa volá až keď sme si istý, že môžeme blok posunúť dole. 
@@ -111,10 +111,10 @@ Má tri rôzne tvary:
 - Ak do argumentov nedáme nič, vráti kde sa časti bloku nachádzajú aktuálne
 - Ak do argumentov dáme pozíciu, vráti, kde by sa časti bloku nachádzali, ak by bol na tejto pozícii
 - Ak do argumentov dáme rotáciu, vráti, kde by sa časti bloku nachádzali, ak by mal blok túto rotáciu
-Na zistenie pozícií používaju GetBlockPositionsBase()
+Na zistenie pozícií používajú GetBlockPositionsBase()
 
 ### GetBlockPositionsBase()
-Pre daný blok, rotáciu a pozíciu zistí pozície častí bloku tak, že prejde cez všetky pozície častí v určitej rotácií a položí ich na novú pozíciu.
+Pre daný blok, rotáciu a pozíciu zistí pozície častí bloku tak, že prejde cez všetky pozície častí v určitej rotácii a položí ich na novú pozíciu.
 
 ### MoveSideways()
 Funkcia volaná z hlavného game-loopu.
