@@ -1,11 +1,11 @@
 # Zápočtový program: TETRIS
 ## Špecifikácia
 
-Hra tetris ako konzolová aplikácia bez použitia knižníc na vykresľovanie do konzoly.
+Hra tetris ako konzolová aplikácia bez použitia knižníc na vykresľovanie v konzole.
 
 ## Inštalácia a spustenie
 
-Pre spustenie prejdite do zložky `Tetris` a spustite príkaz `dotnet run`. Odporúčam začať program v konzole, ktorá je maximalizovaná na obrazovku a následene veľkosť okna nemeniť.
+Pre spustenie prejdite do zložky `Tetris` a spustite príkaz `dotnet run`. Odporúčam spustiť program v konzole, ktorá je maximalizovaná na celú obrazovku a následene veľkosť okna nemeniť.
 
 ## Dokumentácia
 * [Uživatelská dokumentácia](docs/user.md)
