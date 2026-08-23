@@ -1,15 +1,13 @@
-# Užívatelská dokumentácia
+# Používateľská dokumentácia
 
-*Sem napište, jak se váš program používá: jak ho spustit (můžete zkopírovat to, co je v README a případně rozšířit), jak ho ovládat (např. pokud programujete hru, tak jaké klávesy slouží k čemu), případně formát vstupních souborů, ...*
+## Inštalácia a spustenie
 
-## Inštalácia a Spustenie
-
-Pre spustenie prejdite do zložky `Tetris` a spustite príkaz `dotnet run`. Odporúčam začať program v konzole, ktorá je maximalizovaná na obrazovku a následene veľkosť okna nemeniť.
+Pre spustenie prejdite do zložky `Tetris` a spustite príkaz `dotnet run`. Odporúčam spustiť program v konzole, ktorá je maximalizovaná na celú obrazovku a následene veľkosť okna nemeniť.
 
 ## Pravidlá hry
-Smerom dole padajú bloky (tetraminá), ktoré po spadnutí zostanú na mieste. Po zaplnení celého riadku bloky z tohto riadku zmiznú a riadky nad týmto riadkom sa posunú smerom dolu.
+Smerom nadol padajú bloky (tetrominá), ktoré po spadnutí zostanú na mieste. Po zaplnení celého riadku bloky z tohto riadku zmiznú a riadky nad týmto riadkom sa posunú smerom dolu.
 
-Koniec hry nastáva v moment, kedy je blok poležený mimo plochy.
+Koniec hry nastáva v momente, kedy sa blok poleží mimo hracej plochy.
 
 Hra sa pri každom vymazaní riadkov o trochu zrýchli.
 
@@ -20,15 +18,15 @@ Cieľ je získať čo najviac bodov.
 Body sa získavajú za:
 - Vymazanie riadku (za vymazanie viacerých riadkov naraz sú bonusové body)
 - Zrýchlenie padania padajúceho bloku
-- Instanté spadnutie padajúceho bloku
+- Okamžité spadnutie padajúceho bloku na najnižšiu možnú pozíciu
 
 
 ## Ovládanie
 ### V menu
-Šípkami hore a dole vyberáte voľbu akcie a pomocou medzerníka/Enteru ju zvolíte.
+Šípkami hore a dole vyberáte akciu a pomocou medzerníka/Enteru ju zvolíte.
 
 ### V hre
 - Šípky vpravo a vľavo posúvajú padajúci blok doprava a doľava.
 - Šípka hore otočí blokom.
 - Šípka dole zrýchli pád.
-- Medzerník instantne položí blok najviac ako sa dá rovno v smere pádu.
+- Medzerník okamžite spustí blok najnižšie, ako sa dá rovno v smere pádu.
