@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\macop\\Documents\\Skola\\1_rocnik\\Leto\\Programovani\\student-puckom\\Tetris\\Tetris.csproj": {}
+    "C:\\Users\\macop\\Documents\\Proffesional\\MyProjects\\Tetris-in-console\\Tetris\\Tetris.csproj": {}
   },
   "projects": {
-    "C:\\Users\\macop\\Documents\\Skola\\1_rocnik\\Leto\\Programovani\\student-puckom\\Tetris\\Tetris.csproj": {
+    "C:\\Users\\macop\\Documents\\Proffesional\\MyProjects\\Tetris-in-console\\Tetris\\Tetris.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\macop\\Documents\\Skola\\1_rocnik\\Leto\\Programovani\\student-puckom\\Tetris\\Tetris.csproj",
+        "projectUniqueName": "C:\\Users\\macop\\Documents\\Proffesional\\MyProjects\\Tetris-in-console\\Tetris\\Tetris.csproj",
         "projectName": "Tetris",
-        "projectPath": "C:\\Users\\macop\\Documents\\Skola\\1_rocnik\\Leto\\Programovani\\student-puckom\\Tetris\\Tetris.csproj",
+        "projectPath": "C:\\Users\\macop\\Documents\\Proffesional\\MyProjects\\Tetris-in-console\\Tetris\\Tetris.csproj",
         "packagesPath": "C:\\Users\\macop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\macop\\Documents\\Skola\\1_rocnik\\Leto\\Programovani\\student-puckom\\Tetris\\obj\\",
+        "outputPath": "C:\\Users\\macop\\Documents\\Proffesional\\MyProjects\\Tetris-in-console\\Tetris\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\macop\\AppData\\Roaming\\NuGet\\NuGet.Config",

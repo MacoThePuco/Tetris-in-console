@@ -1,12 +1,13 @@
-# Zápočtový program: TETRIS
-## Špecifikácia
+# TETRIS as an console app
+## Specification
 
-Hra tetris ako konzolová aplikácia bez použitia knižníc na vykresľovanie v konzole.
+The game Tetris as an console app without using external libraries for writing in the console.
 
-## Inštalácia a spustenie
+## Installation and launch
 
-Pre spustenie prejdite do zložky `Tetris` a spustite príkaz `dotnet run`. Odporúčam spustiť program v konzole, ktorá je maximalizovaná na celú obrazovku a následene veľkosť okna nemeniť.
+For installation download this repo with git clone. 
+For launch go to 'Tetris' and run 'dotnet run'. I recommend to run the program directly in plain console (not in vscode console etc.) while maximized and to not change the window size after running the game.
 
-## Dokumentácia
-* [Uživatelská dokumentácia](docs/user.md)
-* [Programátorská dokumentácia](docs/programmer.md)
+## Dokumentácia (sk)
+* [User documentation](docs/user.md)
+* [Programmer documentation](docs/programmer.md)
